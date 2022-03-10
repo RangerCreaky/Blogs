@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Carattere&display=swap');
+/* NAVBAR */
+.cover{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url("../images/backgrounds/index_background.jpg") no-repeat 50% 50% / cover;
+    opacity: 0.65;
+    z-index: -1;
+}
+.navbar{
+    padding: 1.5rem;
+}
+.navbar-nav{
+    margin-right: 90px;
+}
+.navbar-brand{
+    font-family: 'Carattere', cursive;
+    margin-left: 50px;
+    font-size: 1.75rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.navbar-brand img{
+    margin-right: 4px;
+}
+.nav-link{
+    width: inherit;
+    color: #111;
+    font-size: 1.15rem;
+    border-radius: 20px;
+}
+.nav-item{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin: 0 10px 0 0;
+    display: flex;
+    align-items: center;
+}
+.hover-effect:hover{
+    background: #333;
+    color: #fff !important;    
+    
+}
+.brand-image{
+    border-radius: 50px;
+}
+.avatar{
+    height: 50px;
+    border-radius: 50px;
+}
+.dropdown-divider{
+    width: 100% !important;
+    margin: 0 !important;
+}

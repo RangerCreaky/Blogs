@@ -1,0 +1,150 @@
+.title{
+    width: 50%;
+    margin: 2rem auto 0 auto;
+    text-align: center;
+}
+
+.edit{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.edit-options{
+    display: flex;
+    flex-direction: row;
+}
+.edit-options form{
+    margin: 0 0.5rem;
+}
+.edit-buttons{
+    background: white;
+    border: 0;
+}
+.edit-buttons i{
+    font-size: 1.3rem;
+}
+.fa-edit:hover{
+    color: green;
+}
+.fa-trash-alt:hover{
+    color: red;
+}
+
+.desc{
+    text-align: center;
+    width: 50%;
+    margin: 0 auto 2rem auto;
+    color: gray;
+    font-weight: 500;
+    text-align: left;
+    /* margin-bottom: 2rem; */
+}
+.bg-image , .image{
+    text-align: center;
+}
+.bg-image img , .image img{
+    max-width: 800px;
+    max-height: 800px;
+    margin: 2rem auto;
+}
+.details{
+    width: 53%;
+    margin:0 auto 2rem auto;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+hr{
+    margin:0 auto 1rem auto;
+    width: 65%;
+}
+.author{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.avatar img{
+    width: 55px;
+    height: 55px;
+    border-radius: 50px;
+}
+.name{
+    margin-left: 10px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.nickname a{
+    font-weight: 800;
+    color: black;
+    text-decoration: none;
+}
+.nickname a:hover{
+    text-decoration: underline;
+}
+.name .date{
+    font-weight: 500;
+}
+.name p{
+    margin-bottom: 0;
+}
+.fab::before{
+    color: black;
+    font-size: 1.8rem;
+    margin-left: 5px;
+}
+.para{
+    line-height: 2rem;
+    font-size: 1.1rem;
+    width: 65%;
+    margin: auto;
+}
+.sub-title{
+    text-align: center;
+    margin-bottom: 1rem;
+}
+h2 , h3 , h4 , h5 , h6{
+    margin-top : 1rem;
+    margin-bottom: 1rem;
+}
+
+/* media queries */
+@media (max-width : 1300px){
+    .title{
+        width: 70%;
+        text-align: center;
+    }
+    .desc{
+        width : 68%
+    }
+    .details{
+        width: 70%;
+    }
+    hr{
+        width: 85%;
+    }
+    .para{
+        width: 85%;
+    }
+    .bg-image img , .image img{
+        max-width: 600px;
+        max-height: 500px;
+    }
+}
+
+@media (max-width : 550px){
+    .bg-image img , .image img{
+        max-width: 400px;
+        max-height: 400px;
+    }
+}
+@media (max-width : 400px){
+    .bg-image img , .image img{
+        max-width: 200px;
+        max-height: 200px;
+    }
+}
+

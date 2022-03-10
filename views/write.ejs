@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/1bc36632b3.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/indiNavbar.css">
+    <link rel="stylesheet" href="../css/individualBlog.css">
+    <link rel="stylesheet" href="../css/write.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- NAVBAR  -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <img src="../images/logos/logo.jpg" alt="" width="50" height="50" class="d-inline-block align-text-top brand-image">
+                BloggitUp!
+            </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link hover-effect active" aria-current="page" href="/write">Write</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link hover-effect active" aria-current="page" href="/your-blogs">Your Blogs</a>
+              </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img class="avatar" src="<%= user.avatar %>" alt="">
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#"><strong> <%= user.nickname %> </strong> <br><em><%= user.email %></em> </a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Know US</a></li>
+                    <li><a class="dropdown-item" href="#">Favourites</a></li>
+                  </ul>
+                </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <h1 class="heading"> Write Your blog </h1>
+      <% if (edit === true) { %>
+        <form action="/update/<%= blog.id %>" method="post" enctype="multipart/form-data">
+          <div class="title">
+            <div class="mb-3">
+              <input type="text" class="form-control" id="title" name="title" value="<%= blog.Title %>">
+            </div>
+          </div>
+          <div class="desc">
+            <div class="mb-3">
+              <textarea class="form-control" name="desc" id="desc" rows="3"><%= blog.DescPhone %> <%= blog.DescWeb %></textarea>
+            </div>
+          </div>
+          <div class="markdown">
+            <div>
+              <textarea class="form-control" name="markdown" id="desc" rows="25"> <%= blog.Body %> </textarea>
+            </div>
+          </div>
+          <div class="topics">
+            <div class="mb-3">
+              <input type="text" class="form-control" id="topics" name="topics" value="<%= blog.Topics.join(',') %>">
+            </div>
+          </div>
+          <div class="mb-3 img">
+            <label for="images" class="form-label"> Upload images </label>
+            <input class="form-control" type="file" name="images" id="images" accept="image/*" multiple>
+          </div>
+          <!-- <div class="button"> -->
+            <input type="submit" class="btn btn-lg btn-outline-primary custom-button" value="UPDATE">
+          </form>  
+          <% } else { %>
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <div class="title">
+                  <div class="mb-3">
+                      <input type="text" class="form-control" id="title" name="title" placeholder="Blog title... ">
+                  </div>
+              </div>
+              <div class="desc">
+                  <div class="mb-3">
+                      <textarea class="form-control" name="desc" id="desc" rows="3" placeholder="Blog description"></textarea>
+                  </div>
+              </div>
+              <div class="bg-image img">
+                  <div class="mb-3">
+                      <label for="images" class="form-label"> Upload banner </label>
+                      <input class="form-control" name="banner" type="file" id="file">
+                  </div>
+              </div>
+              <div class="markdown">
+                  <div>
+                      <textarea class="form-control" name="markdown" id="desc" rows="25" placeholder="Blog description"></textarea>
+                  </div>
+              </div>
+              <div class="topics">
+                  <div class="mb-3">
+                      <input type="text" class="form-control" id="topics" name="topics" placeholder='Enter the topics seperated with commas(",")'>
+                  </div>
+              </div>
+
+              <div class="mb-3 img">
+                  <label for="images" class="form-label"> Upload images </label>
+                  <input class="form-control" type="file" name="images" id="images" accept="image/*" multiple>
+              </div>
+
+              <div class="mb-3 img">
+                  <label for="images" class="form-label"> Upload Thumbnail </label>
+                  <input class="form-control" type="file" name="thumbnail" id="images" accept="image/*">
+              </div>
+              <!-- <div class="button"> -->
+              <input type="submit" class="btn btn-lg btn-outline-primary custom-button" value="POST">
+            </form>
+        <% } %>
+
+
+</form>
+
+
+</body>
+</html>

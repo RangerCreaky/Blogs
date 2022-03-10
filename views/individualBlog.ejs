@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/1bc36632b3.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/indiNavbar.css">
+    <link rel="stylesheet" href="../css/individualBlog.css">
+    <title>Document</title>
+</head>
+<body>
+        <!-- NAVBAR  -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    <img src="../images/logos/logo.jpg" alt="" width="50" height="50" class="d-inline-block align-text-top brand-image">
+                    BloggitUp!
+                </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link hover-effect active" aria-current="page" href="/write">Write</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link hover-effect active" aria-current="page" href="/your-blogs">Your Blogs</a>
+                  </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img class="avatar" src="<%= user.avatar %>" alt="">
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#"><strong> <%= user.nickname %> </strong> <br><em><%= user.email %></em> </a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Know US</a></li>
+                        <li><a class="dropdown-item" href="#">Favourites</a></li>
+                      </ul>
+                    </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+
+    <!-- Blog -->
+    <div class="blog">
+        
+          <% if (edit) { %>
+            <div class="title edit">
+              <h1> <%= blog.Title %> </h1>
+              <div class="edit-options">
+                <form action="/update/<%= blog.id %>" method="GET">
+                  <button class="edit-buttons" type="submit"><i class="fas fa-edit"></i></button>
+                </form>
+                <form action="/delete/<%= blog.id %>?_method=DELETE" method="POST">
+                  <button class="edit-buttons" type="submit"><i class="fas fa-trash-alt"></i></button>
+                </form>
+              </div>
+            </div>
+          <% } else {%>
+            <div class="title">
+              <h1> <%= blog.Title %> </h1>
+            </div>
+          <% } %>
+        <div class="desc">
+            <%= blog.DescPhone %><span class="phone">....</span> <div class="web"> <%= blog.DescWeb %> </div>
+        </div>
+        <div class="bg-image img">
+            <img src="../uploads/photos/<%= blog.Background %>" alt="">
+        </div>
+        <div class="details">
+             <div class="author">
+                  <div class="avatar">
+                    <!-- Need to change this soon -->
+                    <img src="<%= blog.Avatar %>" alt="">
+                  </div>
+                  <div class="name">
+                    <p class="nickname"><a href=""> <%= blog.UserName %>  </a></p>
+                    <p class="date"> <%= blog.Date %> </p>
+                  </div>
+            </div>
+            <div class="socials">
+              <!-- Need to change these  -->
+                <a href=""><i class="fab fa-facebook"></i></a>
+                <a href=""><i class="fab fa-twitter"></i></a>
+                <a href=""><i class="fab fa-instagram-square"></i></a>
+                <!-- Here save to favourites button can be added -->
+            </div>
+        </div>
+        <hr>
+
+        <%- blog.Markdown %>
+        <!-- Edit buttons here -->
+
+        <div class="responses">
+            <!-- To be made -->
+        </div>
+    </div>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+</body>
+</html>

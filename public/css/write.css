@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+.markdown{
+    width: 50%;
+    margin: 0 auto 2rem auto;
+
+}
+.img{
+    width: 50%;
+    margin: auto;
+}
+.custom-button{
+    width: 10rem;
+    display: block;
+    text-align: center;
+    margin: 0 auto 2rem auto;
+}
+.heading{
+    margin: 2rem;
+    text-align: center;
+    font-family: 'Ubuntu Mono', monospace;
+}
+
+/* STYLING INPUT FEILDS */
+.title input[type=text]{
+    outline: none;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: 2px solid black !important;
+    border-radius: 0 !important;
+    color: black !important;
+    padding: 1rem;
+    font-weight: 600;
+    font-size: 1.8rem;
+    font-family: 'Ubuntu Mono', monospace;
+}
+.title input::placeholder{
+    font-weight: 600;
+    font-size: 1.8rem;
+    font-family: 'Ubuntu Mono', monospace;
+}
+input:focus , textarea:focus{
+    box-shadow: none !important;
+}
+
+textarea{
+    color: gray !important;
+    font-weight: 600 !important;
+    font-size: 2rem;
+    padding: 1rem;
+    font-family: 'Ubuntu Mono', monospace;
+    outline: none;
+    border: 2px solid black !important;
+    border-radius: 0 !important;
+}
+textarea::placeholder{
+    font-weight: 600;
+    color: black !important;
+}
+.markdown textarea::placeholder{
+    font-weight: 600;
+    color: gray !important;
+}
+
+.markdown textarea{
+    font-size: 1.2rem !important;
+    color : black !important;
+}
+
+label{
+    color: black;
+    font-weight: 600;
+    font-size: medium;
+    font-family: 'Ubuntu Mono', monospace;
+}
+input[type=file]{
+    border-radius: 0 !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: 2px solid black !important;
+}
+
+.topics input{
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: 2px solid black !important;
+    width: 50%;
+    margin: auto;
+    font-weight: 600;
+    font-family: 'Ubuntu Mono', monospace;
+    border-radius: 0 !important;
+}
+
+.btn{
+    color: black !important;
+    border-color: black !important ;
+}
+.btn:hover{
+    background-color: #111 !important ;
+    color: white !important;
+}

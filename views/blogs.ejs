@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/1bc36632b3.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/blogs.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- NAVBAR  -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <img src="../images/logos/logo.jpg" alt="" width="50" height="50" class="d-inline-block align-text-top brand-image">
+                BloggitUp!
+            </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link hover-effect active" aria-current="page" href="/write">Write</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link hover-effect active" aria-current="page" href="/your-blogs">Your Blogs</a>
+              </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img class="avatar" src="<%= user.avatar %>" alt="">
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#"><strong> <%= user.nickname %> </strong> <br><em><%= user.email %></em> </a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Know US</a></li>
+                    <li><a class="dropdown-item" href="#">Favourites</a></li>
+                  </ul>
+                </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- blogs start here -->
+      <div class="wrapper">
+        <% blogs.forEach(element => { %>
+          <% if ((user.id === element.userId) || ( showAll )) { %>
+            <div class="blog">
+              <div class="thumbnail">
+                <img src="../uploads/photos/<%= element.Thumbnail %>" alt="">
+              </div>
+              <div class="content">
+                <div class="first_row">
+                  <div class="title">
+                    <% if ((showAll === false) || (user.id === element.userId)) { %>
+                      <h2> <a href="edit/<%= element.id %>" class="title-link"><%= element.Title %></a></h2>
+                    <% } else {%>
+                      <h2> <a href="blogs/<%= element.id %>" class="title-link"><%= element.Title %></a></h2>
+                      <% } %>
+                  </div>
+                  <div class="description">
+                    <p><%= element.DescPhone %><span class="phone">....</span> <span class="web"> <%= element.DescWeb %> </span> </p>
+                  </div>
+                </div>
+                <div class="last_row">
+                  <div class="topics">
+                    <% element.Topics.forEach(topic => { %>
+                      <h6><%= topic %></h6>
+                    <% }); %>
+                  </div>
+                  <div class="owner">
+                    <div class="avatar">
+                      <img src="<%= element.Avatar %>" alt="">
+                    </div>
+                    <div class="name">
+                      <p><%= element.UserName %></p>
+                      <p> <%= element.Date %> </p>
+                    </div>
+                  </div>
+                </div> 
+              </div>
+            </div>
+          <% } %>
+        <% }) %>
+        
+      </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+</body>
+</html>

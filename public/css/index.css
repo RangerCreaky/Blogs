@@ -1,0 +1,42 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Carattere&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+
+/* QUOTE */
+.quote{
+    text-align: center;
+    width: 50%;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(0, 0, 0);
+}
+.heading-big{
+    font-family: 'Anton', sans-serif;
+}
+figcaption{
+    font-weight: bolder;
+}
+.author{
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    font-size: 1.5rem;
+}
+.custom-button{
+    margin-top: 1rem;
+    padding: 1rem 2rem;
+    background-color : #555;
+    border: 2px solid black;
+    font-size: 1.2rem;
+    font-weight: bolder;
+    color: white;
+    border-radius: 20px;
+}
+.custom-button:hover{
+    background-color : #fff;
+    color: #222;
+}
